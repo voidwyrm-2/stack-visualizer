@@ -89,13 +89,19 @@ def run_visualizer(svi: SVI):
                 ip += 1
                 if ip >= len(instructions): break
 
+        pygame.draw.line(screen, (150, 150, 150), (5, stack_offset - 8), (100, stack_offset - 8), 3)
         # `stack.__dict__["_Stack__stack"]` allows me to get the private field `__stack` from the Stack class
-        pygame.draw.line(screen, (150, 150, 150), (5, stack_offset), (20, stack_offset))
+        stack_height = 0
         for i, c in enumerate(stack.__dict__["_Stack__stack"]):
             screen.blit(mainfont.render(f"{i}: {c}", True, (255, 255, 255)),
-                        (5, 
-                         (stack_offset - (i * 20)) - 2)
+                        (9,
+                         ((stack_offset - 28) - (i * 20)) - 2)
                         )
+            stack_height = (i + 1) * 20
+
+        if stack_height > 0:
+            pygame.draw.line(screen, (150, 150, 150), (5, (stack_offset - 8)), (5, (stack_offset - 16) - stack_height), 3)
+            pygame.draw.line(screen, (150, 150, 150), (5, (stack_offset - 16) - stack_height), (100, (stack_offset - 16) - stack_height), 3)
         
         if usesOutput:
             screen.blit(mainfont.render(f"output: {output}", True, (255, 255, 255)), (5, screenxy.y - 22))

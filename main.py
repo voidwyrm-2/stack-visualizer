@@ -14,7 +14,7 @@ def main():
     elif len(args) != 1:
         print(f"usage: {USAGE}")
         return
-    elif ((False if args[0].rsplit(os.path.extsep, 1)[1] == "sv" else True) if len(args[0].rsplit(os.path.extsep, 1)) > 1 else False) and os.path.isfile(args[0]) == False:
+    elif ((False if args[0].rsplit(os.path.extsep, 1)[1] == "svs" else True) if len(args[0].rsplit(os.path.extsep, 1)) > 1 else False) and os.path.isfile(args[0]) == False:
         print(f"file '{args[0]}' is not a SVScript file")
         return
     elif not os.path.exists(f"scripts/{args[0].removeprefix("/") if args[0].startswith("/") else args[0].removeprefix("\\") if args[0].startswith("\\") else args[0]}"):

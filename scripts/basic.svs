@@ -1,0 +1,15 @@
+wait
+
+push.s "Hello, "
+
+wait
+
+push.s "Catdog!"
+
+wait
+
+pop.n
+
+wait
+
+pop.n
