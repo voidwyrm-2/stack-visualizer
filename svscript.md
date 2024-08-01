@@ -2,6 +2,8 @@
 The scripting language I made to control stack visualizations<br>
 It has a simple syntax based on Common Intermediate Language(CIL), which is what C# compiles into
 
+For examples, see the [scripts](./scripts) folder
+
 # Commands/Instructions
 Name | Description
 ---- | -----------
